@@ -28,7 +28,10 @@ async def award(*, search : str):
  
 
 def find_rule(text):
-	return handle_comment(text, rules.rules, rules.awards)
+	return handle_comment(text, rules.rules, rules.awards, True)
+		      
+def find_award(text):
+	return handle_comment(text, rules.rules, rules.awards, False)
 
 
 def handle_comment(comment, rules_list, awards_list, rule):
