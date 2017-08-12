@@ -44,16 +44,16 @@ async def rule(*, search : str):
 	def get_rules_list(rules_list, query_list):
   	good_rules = []
   	for rule in rules_list:
-    	is_good = 0
-    	is_bad = 0
-    	for query in query_list:
-		if (query not in rule[1].lower()) and (query != rule[0].lower()):
-        		is_bad+=1
-      		else:
-        		is_good+=1
-    	percent = ( is_good / (is_good+is_bad) )
-    	if percent >= .75:
-        	good_rules.append(rule)
+    		is_good = 0
+    		is_bad = 0
+    		for query in query_list:
+			if (query not in rule[1].lower()) and (query != rule[0].lower()):
+        			is_bad+=1
+      			else:
+        			is_good+=1
+    		percent = ( is_good / (is_good+is_bad) )
+    		if percent >= .75:
+        		good_rules.append(rule)
     	return good_rules
 
 await bot.say(handle_comment(search, rules.rules, rules.awards)
